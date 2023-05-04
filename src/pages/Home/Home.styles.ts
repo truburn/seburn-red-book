@@ -1,4 +1,4 @@
-import { createStyles } from "utilities/theme";
+import { createStyles } from "theme";
 
 export const homeClasses = createStyles("Home", {
   root: {
