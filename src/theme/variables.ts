@@ -1,4 +1,9 @@
 /**
+ * Base Font Height
+ */
+export const baseHeight = 16;
+
+/**
  * Base colors
  */
 export const colors = {
@@ -10,4 +15,25 @@ export const colors = {
   warning: "#EC8026",
   success: "#1EBC1E",
   info: "#178D8D",
+};
+
+/**
+ * Font families
+ */
+export const fontFamilies = {
+  primary: {
+    fontFamily: `'Caveat', cursive`,
+    weight: {
+      regular: 400,
+      bold: 700,
+    },
+  },
+  secondary: {
+    fontFamily: `'Comfortaa', cursive`,
+    weight: {
+      light: 300,
+      regular: 500,
+      bold: 700,
+    },
+  },
 };

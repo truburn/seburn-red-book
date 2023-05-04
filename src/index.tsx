@@ -1,18 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
-import { ThemeProvider } from "react-jss";
 import reportWebVitals from "./reportWebVitals";
 import { router } from "pages/router";
-import { GlobalStyles, theme } from "theme";
+import { MyThemeProvider } from "theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
+    <MyThemeProvider>
       <RouterProvider router={router} />
-    </ThemeProvider>
+    </MyThemeProvider>
   </React.StrictMode>
 );
 

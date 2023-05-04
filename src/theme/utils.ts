@@ -13,21 +13,25 @@ export const createStyles = (name: string, styles: any, options?: any) =>
 /**
  * Combine a list of classnames into a single string
  */
-export type ClassistType = Array<string | undefined | Record<string, boolean>>;
-export const classist = (classNames: ClassistType = []): string => {
-  const classes: string[] = classNames
+export type ClassListType = Array<string | undefined | Record<string, boolean>>;
+export const classList = (classNames: ClassListType = []): string => {
+  return classNames
     .map((val) => {
       if (typeof val === "string") return val;
       if (typeof val === "object") {
-        const [name, addToList] = Object.entries(val)[0];
-        if (addToList) return name;
+        return Object.entries(val)
+          .map(([name, addToList]) => {
+            if (addToList) return name;
+            return "";
+          })
+          .filter((name) => Boolean(name))
+          .join(" ");
       }
 
       return "";
     })
-    .filter((name) => name !== "");
-
-  return classes.join(" ");
+    .filter((name) => Boolean(name))
+    .join(" ");
 };
 
 /**

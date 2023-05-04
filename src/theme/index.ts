@@ -1,14 +1,13 @@
 import { DefaultTheme } from "react-jss";
-import { colors } from "./variables";
+import * as vars from "./variables";
 import { getColorVariations } from "./utils";
 
-export * from "./global";
+export * from "./MyThemeProvider";
 export * from "./utils";
-export * from "./variables";
 
 const color = Object.fromEntries(
-  Object.entries(colors).map(([key, color]) => {
-    return [key, getColorVariations(color)];
+  Object.entries(vars.colors).map(([key, value]) => {
+    return [key, getColorVariations(value)];
   })
 );
 
@@ -16,7 +15,7 @@ const color = Object.fromEntries(
  * Application theme variables
  */
 export const theme: DefaultTheme = {
-  baseHeight: 16,
+  baseHeight: vars.baseHeight,
   border: {
     style: "solid",
     width: 1,
@@ -25,54 +24,36 @@ export const theme: DefaultTheme = {
   color,
   font: {
     body: {
-      fontFamily: `'Caveat', cursive`,
+      ...vars.fontFamilies.primary,
       lineHeight: 1.125,
       size: {
-        small: 12,
-        medium: 16,
-        large: 20,
-      },
-      weight: {
-        regular: 400,
-        bold: 700,
+        small: vars.baseHeight - 4,
+        medium: vars.baseHeight,
+        large: vars.baseHeight + 4,
       },
     },
     title: {
-      fontFamily: `'Caveat', cursive`,
+      ...vars.fontFamilies.primary,
       lineHeight: 1,
-      weight: {
-        regular: 400,
-        bold: 700,
-      },
     },
     subtitle: {
-      fontFamily: `'Comfortaa', cursive`,
+      ...vars.fontFamilies.secondary,
       lineHeight: 1,
-      weight: {
-        light: 300,
-        regular: 500,
-        bold: 700,
-      },
     },
     info: {
-      fontFamily: `'Comfortaa', cursive`,
+      ...vars.fontFamilies.secondary,
       lineHeight: 1,
       size: {
-        small: 9,
-        medium: 11,
-        large: 14,
-      },
-      weight: {
-        light: 300,
-        regular: 500,
-        bold: 700,
+        small: vars.baseHeight - 7,
+        medium: vars.baseHeight - 5,
+        large: vars.baseHeight - 2,
       },
     },
   },
   spacing: {
-    thin: 4,
-    small: 8,
-    medium: 16,
-    large: 32,
+    thin: vars.baseHeight / 4,
+    small: vars.baseHeight / 2,
+    medium: vars.baseHeight,
+    large: vars.baseHeight * 2,
   },
 };

@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 /**
  * Global styles to apply to the entire application
  */
-const useGlobalStyles = createUseStyles((theme) => ({
+export const useGlobalStyles = createUseStyles((theme) => ({
   "@global": {
     body: {
       width: "100vw",
@@ -43,8 +43,3 @@ const useGlobalStyles = createUseStyles((theme) => ({
     },
   },
 }));
-
-export const GlobalStyles = () => {
-  useGlobalStyles();
-  return <></>;
-};
