@@ -1,7 +1,7 @@
 import { DefaultTheme } from "react-jss";
 import { Mixins, colorOpacity, createStyles } from "theme";
 
-export const appClasses = createStyles("App", (theme: DefaultTheme) => ({
+export const layoutClasses = createStyles("App", (theme: DefaultTheme) => ({
   header: {
     display: "flex",
     flexDirection: "row",

@@ -3,13 +3,13 @@ import { RoutePaths } from "pages/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCauldron } from "@fortawesome/pro-duotone-svg-icons";
 import { faCopyright } from "@fortawesome/pro-regular-svg-icons";
-import { appClasses } from "./AppStyles";
+import { layoutClasses } from "./Layout.styles";
 
 /**
  * Application layout template
  */
-export const AppLayout = () => {
-  const classes = appClasses();
+export const Layout = () => {
+  const classes = layoutClasses();
 
   return (
     <>
