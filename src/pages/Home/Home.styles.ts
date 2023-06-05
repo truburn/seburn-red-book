@@ -5,13 +5,8 @@ export const homeClasses = createStyles("Home", {
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "stretch",
     justifyContent: "center",
-  },
-  header: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
   },
   navLink: {
     display: "flex",

@@ -7,8 +7,14 @@ interface Props {
   children?: ReactNode;
 }
 
-export const MyThemeProvider = ({ children }: Props) => {
-  useGlobalStyles();
+export const MyThemeProvider = ({ children }: Props) => (
+  <ThemeProvider theme={theme}>
+    <GlobalStyles />
+    {children}
+  </ThemeProvider>
+);
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+const GlobalStyles = () => {
+  useGlobalStyles();
+  return <></>;
 };

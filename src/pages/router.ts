@@ -3,7 +3,7 @@ import { Home } from "./Home";
 import { Cookbook } from "./Cookbook";
 import { FruitPairing } from "./FruitPairing";
 import { MeasurementConversion } from "./MeasurementConversion";
-import { Tools } from "../layout/Tools";
+import { AppLayout } from "layout";
 
 export enum RoutePaths {
   HOME = "/",
@@ -14,12 +14,12 @@ export enum RoutePaths {
 
 export const router = createBrowserRouter([
   {
-    path: RoutePaths.HOME,
-    Component: Home,
-  },
-  {
-    Component: Tools,
+    Component: AppLayout,
     children: [
+      {
+        path: RoutePaths.HOME,
+        Component: Home,
+      },
       {
         path: RoutePaths.COOKBOOK,
         Component: Cookbook,

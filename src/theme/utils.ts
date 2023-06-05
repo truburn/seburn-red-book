@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss";
 import chroma from "chroma-js";
+import { Color, ClassListType, ColorVariation } from "theme/types";
 
 /**
  * Create styles for a component with named prefix
@@ -12,8 +13,10 @@ export const createStyles = (name: string, styles: any, options?: any) =>
 
 /**
  * Combine a list of classnames into a single string
+ * @param classNames <ClassListType> class names to include with optional conditionals
+ *
+ * @returns string Space delimited list of classnames
  */
-export type ClassListType = Array<string | undefined | Record<string, boolean>>;
 export const classList = (classNames: ClassListType = []): string => {
   return classNames
     .map((val) => {
@@ -36,19 +39,14 @@ export const classList = (classNames: ClassListType = []): string => {
 
 /**
  * Create a color variation object
+ * @param color <string> The hex color value
+ *
+ * @returns ColorVariation
  */
-export interface ColorVariation {
-  chromaColor: chroma.Color;
-  main: string;
-  contrast: string;
-  dark?: string;
-  light?: string;
-  border?: string;
-}
 export const getColorVariations = (color: string): ColorVariation => {
   const chromaColor = chroma(color);
   const isLight = chromaColor.luminance() > 0.5;
-  const contrast = isLight ? chromaColor.darken(3) : chromaColor.brighten(3);
+  const contrast = isLight ? chromaColor.darken(4) : chromaColor.brighten(4);
 
   return {
     chromaColor,
@@ -58,4 +56,17 @@ export const getColorVariations = (color: string): ColorVariation => {
     light: chromaColor.brighten(2).hex(),
     border: contrast.desaturate(3).hex(),
   };
+};
+
+/**
+ * Change the opacity on a color
+ * @param color <Color> The color to change the opacity on as either a hex string or chroma color
+ * @param alpha <number> Opacity percentage as a decimal value 0 - 1
+ *
+ * @returns string Valid css rgba value
+ */
+export const colorOpacity = (color: Color, alpha: number): string => {
+  let chromaColor = typeof color === "string" ? chroma(color) : color;
+  const rgba = chromaColor.alpha(alpha).rgba();
+  return `rgba(${rgba})`;
 };

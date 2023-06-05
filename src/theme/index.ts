@@ -4,6 +4,7 @@ import { getColorVariations } from "./utils";
 
 export * from "./MyThemeProvider";
 export * from "./utils";
+export * as Mixins from "./mixins";
 
 const color = Object.fromEntries(
   Object.entries(vars.colors).map(([key, value]) => {
@@ -19,7 +20,7 @@ export const theme: DefaultTheme = {
   border: {
     style: "solid",
     width: 1,
-    borderColor: color.text.border,
+    color: color.text.border,
   },
   color,
   font: {
@@ -55,5 +56,6 @@ export const theme: DefaultTheme = {
     small: vars.baseHeight / 2,
     medium: vars.baseHeight,
     large: vars.baseHeight * 2,
+    xlarge: vars.baseHeight * 2.5,
   },
 };

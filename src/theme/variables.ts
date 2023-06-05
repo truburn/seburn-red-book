@@ -9,7 +9,8 @@ export const baseHeight = 16;
 export const colors = {
   primary: "#C20022",
   secondary: "#234875",
-  paper: "#E0F1FF",
+  paper: "#f7f6eb",
+  background: "#E0F1FF",
   text: "#2F4858",
   error: "#EC2626",
   warning: "#EC8026",
