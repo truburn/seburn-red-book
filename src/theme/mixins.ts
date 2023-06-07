@@ -63,5 +63,29 @@ export const linedPaper = (options: LinedPaperOptions = {}): Record<string, any>
     backgroundImage: `linear-gradient(0deg, ${gradient.join(", ")})`,
     backgroundSize: `100% ${lineSpacing + lineSize}px`,
     backgroundRepeat: "repeat-y",
+    backgroundAttachment: "local",
+  };
+};
+
+/**
+ * Mixin to apply pencil border styles
+ */
+export const pencilBorder = () => {
+  return {
+    borderStyle: "solid",
+    borderWidth: 2,
+    outline: "none",
+    borderTopLeftRadius: "255px 15px",
+    borderTopRightRadius: "25px 255px",
+    borderBottomRightRadius: "325px 15px",
+    borderBottomLeftRadius: "25px 255px",
+    transform: "rotate(1deg)",
+    "&:nth-child(even)": {
+      borderBottomLeftRadius: "255px 15px",
+      borderTopRightRadius: "25px 255px",
+      borderBottomRightRadius: "325px 15px",
+      borderTopLeftRadius: "25px 255px",
+      transform: "rotate(-1deg)",
+    },
   };
 };

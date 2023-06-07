@@ -11,7 +11,7 @@ export const layoutClasses = createStyles("App", (theme: DefaultTheme) => ({
     color: theme.color.primary.contrast,
     padding: Mixins.spacing({
       vertical: theme.spacing.thin,
-      horizontal: theme.spacing.small,
+      horizontal: theme.spacing.medium,
     }),
     fontSize: "1.5rem",
     "& a": {
@@ -21,7 +21,7 @@ export const layoutClasses = createStyles("App", (theme: DefaultTheme) => ({
     zIndex: 1,
   },
   headerIcon: {
-    margin: Mixins.spacing({ right: theme.spacing.thin }),
+    margin: Mixins.spacing({ right: theme.spacing.small }),
     opacity: 0.75,
     fontSize: "1.75rem",
   },
@@ -33,17 +33,18 @@ export const layoutClasses = createStyles("App", (theme: DefaultTheme) => ({
     justifyContent: "flex-start",
     ...Mixins.linedPaper(),
     zIndex: 0,
+    overflow: "auto",
   },
   footer: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "flex-end",
-    background: theme.color.background.light,
-    color: colorOpacity(theme.color.background.contrast, 0.5),
+    background: theme.color.background.main,
+    color: colorOpacity(theme.color.background.contrast, 0.75),
     padding: Mixins.spacing({
-      vertical: theme.spacing.thin,
-      horizontal: theme.spacing.small,
+      vertical: theme.spacing.small,
+      horizontal: theme.spacing.large,
     }),
     boxShadow: "0px 0px 15px 0px rgba(0,0,0,0.75)",
     "& > svg": {
